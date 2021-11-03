@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Banking Operations</title>
+    <link th:href="@{/stylesheets/global.css}" rel="stylesheet" />
+</head>
+<body>
+
+<header th:class="header">
+    <img th:class="header-logo" th:src="@{/images/logo.png}">
+</header>
+
+
+<div th:class="content">
+
+    <div th:class="left-content">
+        <h1>Welcome to Banking Operations</h1>
+
+        <p>Need a little extra?<br />
+            Banking operations are here to help you, help yourself.
+            Did your car brake down or are you thinking about
+            taking your girl on a surprise vacation? Here at
+            Banking Operations we enable you to have the life you
+            want and deserve by collecting loan offers from a
+            variety of bank around the world!</p>
+
+        <a th:href="@{/loan}">
+            <button>LOAN NOW</button>
+        </a>
+
+    </div>
+
+    <div th:class="right-content">
+
+        <h1>Compare loan prices from a variety of banks</h1>
+
+        <! Insert banking images -->
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

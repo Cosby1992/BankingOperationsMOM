@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Application - Banking Operations</title>
+    <link th:href="@{/stylesheets/global.css}" rel="stylesheet" />
+</head>
+<body>
+
+<header th:class="header">
+    <img th:class="header-logo" th:src="@{/images/logo.png}">
+</header>
+
+<div th:class="content">
+
+    <div th:class="left-content">
+        <h1>Fill out your information</h1>
+
+        <form method="post" th:action="@{/loan/request}" th:object="${loanRequest}">
+            <input type="number" step="0.01" th:field="*{loanAmount}" required >
+            <input type="number" th:field="*{paybackPeriod}" required >
+            <input type="text" th:field="*{firstname}" required >
+            <input type="text" th:field="*{lastname}" required >
+            <input type="date" th:field="*{dateOfBirth}" required >
+
+            <button type="submit">Submit</button>
+        </form>
+
+    </div>
+
+    <div th:class="right-content">
+
+        <h1>Compare loan prices from a variety of banks</h1>
+
+    </div>
+
+</div>
+
+</body>
+</html>

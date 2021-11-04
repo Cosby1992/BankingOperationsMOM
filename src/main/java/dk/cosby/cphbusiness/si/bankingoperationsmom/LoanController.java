@@ -4,6 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.util.concurrent.TimeoutException;
+
 @Controller
 @RequestMapping(path = "/loan")
 public class LoanController {
@@ -25,8 +28,34 @@ public class LoanController {
         System.out.println(loanRequest.getLastname());
         System.out.println(loanRequest.getDateOfBirth().toString());
 
+        // Send request through rabbitMQ
+        try {
+            LoanMessageSender.sendLoanRequest(loanRequest);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+
+        // Get responses from MQ
+
+        // show the responses in a nice way
+
         // Call rabbitMQ with request to get loans with the information provided
 
+
+
+    }
+
+    @RequestMapping(path = "/listen")
+    public String listen(){
+        try {
+            LoanMessageReceiver.receive();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+
+        return "listen";
     }
 
 

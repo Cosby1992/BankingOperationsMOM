@@ -9,6 +9,19 @@ p {
     padding: 10px;
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+input {
+    outline: none;
+    height: 20px;
+    min-width: 200px;
+    max-width: 600px;
+    width: 70%;
+}
+
 button {
     height: 75px;
     width: 325px;

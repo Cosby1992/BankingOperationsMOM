@@ -7,7 +7,7 @@ public class LoanRequest {
     private double loanAmount;
     private int paybackPeriod;
     private String firstname;
-    private String Lastname;
+    private String lastname;
     private Date dateOfBirth;
 
     public LoanRequest() {
@@ -38,11 +38,11 @@ public class LoanRequest {
     }
 
     public String getLastname() {
-        return Lastname;
+        return lastname;
     }
 
     public void setLastname(String lastname) {
-        Lastname = lastname;
+        this.lastname = lastname;
     }
 
     public Date getDateOfBirth() {

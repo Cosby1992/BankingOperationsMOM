@@ -1,0 +1,6 @@
+
+{
+  "bank_name": "Evil Bank",
+  "loan_interest": 3.3,
+  "loan_acceptance_interval": [0, 10000]
+}

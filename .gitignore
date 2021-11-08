@@ -5,6 +5,7 @@ target/
 !**/src/test/**/target/
 
 /bankservers/*/node_modules
+/bankservers/*/package-lock.json
 
 ### STS ###
 .apt_generated

@@ -14,7 +14,7 @@ public class BankingOperationsMomApplication {
         SpringApplication.run(BankingOperationsMomApplication.class, args);
 
         try {
-            LoanMessageReceiver.receive();
+            LoanMessageReceiver.listen();
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e.getMessage());

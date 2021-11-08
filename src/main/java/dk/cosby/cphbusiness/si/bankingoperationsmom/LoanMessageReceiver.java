@@ -14,7 +14,7 @@ public class LoanMessageReceiver {
 
     private final static String QUEUE_NAME = "LoanResponse";
 
-    public static void receive() throws IOException, TimeoutException {
+    public static void listen() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
         Connection connection = factory.newConnection();

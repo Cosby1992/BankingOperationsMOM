@@ -4,9 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
-import java.util.concurrent.TimeoutException;
-
 @Controller
 @RequestMapping(path = "/loan")
 public class LoanController {
@@ -49,7 +46,7 @@ public class LoanController {
     @RequestMapping(path = "/listen")
     public String listen(){
         try {
-            LoanMessageReceiver.receive();
+            LoanMessageReceiver.listen();
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e.getMessage());

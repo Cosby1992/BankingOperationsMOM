@@ -1,13 +1,14 @@
 var amqp = require('amqplib/callback_api');
 
-module.exports.recieveMQMessage = function recieveMQMessage(args) {
+module.exports.recieveMQMessage = function recieveMQMessage() {
+
+    const bank_info = require("./bank_info.json");
+
 
     amqp.connect('amqp://localhost', function(error, connection) {
     if (error) {
         throw error;
     }
-
-    console.log(args);
 
     connection.createChannel(function(error, channel) {
         if (error) {
@@ -25,12 +26,16 @@ module.exports.recieveMQMessage = function recieveMQMessage(args) {
         channel.consume(queue, function(msg) {
 
             const loanRequest = JSON.parse(msg.content.toString());
-            const interest = Number(args[0]) / 100;
+
+            if(loanRequest.loanAmount < bank_info.loan_acceptance_interval[0] ||
+               loanRequest.loanAmount > bank_info.loan_acceptance_interval[1]){
+                return;
+            }
+
+            const interest = bank_info.loan_interest / 100;
 
             const totalcost = loanRequest.loanAmount * Math.pow((1 + interest), loanRequest.paybackPeriod % 12);
             const costPrMonth = totalcost / loanRequest.paybackPeriod;
-
-            var bankname = args.slice(1, args.length);
 
             var response = {};
 
@@ -38,7 +43,7 @@ module.exports.recieveMQMessage = function recieveMQMessage(args) {
             response.totalcost = String(totalcost);
             response.costPrMonth = String(costPrMonth);
             response.paybackPeriod = String(loanRequest.paybackPeriod);
-            response.bankname = bankname;
+            response.bankname = bank_info.bank_name;
 
             sendMQMessage(JSON.stringify(response));
 

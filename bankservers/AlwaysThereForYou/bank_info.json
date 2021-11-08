@@ -1,0 +1,6 @@
+
+{
+  "bank_name": "Quick Loan",
+  "loan_interest": 40.0,
+  "loan_acceptance_interval": [0, 5000000]
+}

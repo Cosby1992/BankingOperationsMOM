@@ -1,0 +1,6 @@
+
+{
+  "bank_name": "Loan Shark",
+  "loan_interest": 4.8,
+  "loan_acceptance_interval": [5000, 50000]
+}

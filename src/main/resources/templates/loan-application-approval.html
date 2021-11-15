@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Application Approval - Banking Operations</title>
+    <link th:href="@{/stylesheets/global.css}" rel="stylesheet" />
+</head>
+<body>
+
+<header th:class="header">
+    <img th:class="header-logo" th:src="@{/images/logo.png}">
+</header>
+
+<div th:class="content">
+
+    <div th:class="left-content">
+        <h1>Loan Approved</h1>
+
+        <a th:href="@{/loan/application/apply/confirmationletter}">
+            <button>Download Confirmation Letter</button>
+        </a>
+
+    </div>
+
+    <div th:class="right-content">
+
+        <h1>Loan Information</h1>
+
+    </div>
+
+</div>
+
+</body>
+</html>

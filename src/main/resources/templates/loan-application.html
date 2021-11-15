@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Application  - Banking Operations</title>
+    <link th:href="@{/stylesheets/global.css}" rel="stylesheet" />
+</head>
+<body>
+
+<header th:class="header">
+    <img th:class="header-logo" th:src="@{/images/logo.png}">
+</header>
+
+<div th:class="content">
+
+    <div th:class="left-content">
+        <h1>Fill out your information</h1>
+
+        <form id="post-loan-request-form" method="post" th:action="@{/loan/application/apply}" th:object="${loanApplication}">
+            <div th:class="card-text-header" th:classappend="mini">Firstname</div>
+            <input type="text" th:field="*{firstname}" required >
+            <div th:class="card-text-header" th:classappend="mini">Lastname</div>
+            <input type="text" th:field="*{lastname}" required >
+            <div th:class="card-text-header" th:classappend="mini">Email</div>
+            <input type="email" th:field="*{email}" required >
+            <div th:class="card-text-header" th:classappend="mini">Account Number</div>
+            <input type="number" th:field="*{accountNumber}" required >
+            <div th:class="card-text-header" th:classappend="mini">Registration Number</div>
+            <input type="number" th:field="*{registrationNumber}" required >
+
+            <button type="submit">Apply</button>
+
+        </form>
+
+    </div>
+
+    <div th:class="right-content">
+
+        <h1>Loan Information</h1>
+
+
+
+
+    </div>
+
+</div>
+
+</body>
+</html>

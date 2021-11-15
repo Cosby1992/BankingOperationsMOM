@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results  - Banking Operations</title>
+    <link th:href="@{/stylesheets/global.css}" rel="stylesheet" />
+</head>
+<body>
+
+<header th:class="header">
+    <img th:class="header-logo" th:src="@{/images/logo.png}">
+</header>
+
+
+<div th:class="content">
+
+    <div th:id="left-content" th:class="left-content">
+        <h1>Available Loans</h1>
+
+        <div th:class="loan-card" th:each="response : ${loanResponses}" onclick="selectLoan(this);">
+            <div th:class="content-divider-vertical">
+
+                <div th:class="content-divider-horizontal">
+                    <div th:class="card-text-header" th:classappend="mini">Bank Name</div>
+                    <div th:id="'bank-name'" th:class="card-text-header" th:classappend="spacer" th:text="${response.getBankName()}"></div>
+
+                    <div th:class="content-divider-vertical">
+                        <div th:class="content-divider-horizontal">
+                            <div th:class="card-text-header" th:classappend="'mini margin-right'">APR</div>
+                            <div th:class="card-text-header" th:classappend="margin-right" th:text="${response.getAnnualPercentageRate()}"></div>
+                        </div>
+                        <div th:class="content-divider-horizontal">
+                            <div th:class="card-text-header" th:classappend="mini">Total Payback Amount</div>
+                            <div th:class="card-text-header" th:text="${response.getTotalCost()}"></div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+                <div th:class="content-divider-horizontal">
+                    <div th:class="content-divider-horizontal">
+                        <div th:class="card-text-header" th:classappend="mini">$ / month</div>
+                        <div th:class="card-text-header" th:classappend="spacer" th:text="${response.getCostPerMonth()}"></div>
+                    </div>
+                    <div th:class="content-divider-horizontal">
+                        <div th:class="card-text-header" th:classappend="mini">Paid back in</div>
+                        <div th:class="content-divider-vertical">
+                            <div th:class="card-text-header" th:text="${response.getPaybackPeriod()}"></div>
+                            <div th:class="card-text-header" th:classappend="mini">&nbsp;&nbsp;month</div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div th:id="right-content" th:class="right-content">
+
+        <h1>Selected Loan</h1>
+
+        <div th:id="selected-loan">
+
+        </div>
+
+        <div th:id="'apply-for-loan-button'" th:class="'locked-in-buttom-center'" th:classappend="'hidden'">
+
+            <form id="loan-application-form" method="post" th:action="@{/loan/application}" th:object="${loanResponse}" >
+                <input id="bankname" type="text" th:field="*{bankName}"  hidden>
+                <input id="costprmonth" type="text" th:field="*{costPerMonth}"  hidden>
+                <input id="apr" type="text" th:field="*{annualPercentageRate}"  hidden>
+                <input id="totalcost" type="text" th:field="*{totalCost}"  hidden>
+                <input id="paybackperiod" type="text" th:field="*{paybackPeriod}"  hidden>
+
+                <button type="submit">Apply for the selected loan</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script th:src="@{/javascripts/loan-response.js}"></script>
+</body>
+</html>

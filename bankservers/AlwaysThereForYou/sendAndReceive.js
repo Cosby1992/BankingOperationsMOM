@@ -68,7 +68,7 @@ function sendMQMessage(message) {
             throw error;
         }
 
-        var queue = 'LoanResponse';
+        const queue = 'LoanResponse';
 
         channel.assertQueue(queue, {
             durable: false

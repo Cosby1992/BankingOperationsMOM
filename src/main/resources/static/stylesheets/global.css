@@ -20,6 +20,7 @@ input {
     min-width: 200px;
     max-width: 600px;
     width: 70%;
+    margin-bottom: 10px;
 }
 
 button {
@@ -75,5 +76,76 @@ button:hover {
     padding: 0 8% 0 8%;
     max-width: 600px;
     color: white;
+}
+
+.content-divider-horizontal {
+    display: flex;
+    flex-direction: column;
+}
+
+.content-divider-vertical {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.loan-card {
+    width: 100%;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 1px 1px 5px black;
+    margin-bottom: 10px;
+}
+
+.loan-card:hover {
+    margin-top: 2px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.card-text-header {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.card-text-minor-header {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.card-text-value {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.mini {
+    font-size: 10px;
+}
+
+.spacer {
+    padding-bottom: 15px;
+}
+
+.margin-right {
+    margin-right: 10px;
+}
+
+.locked-in-buttom-center {
+    display: block;
+    position: absolute;
+    bottom: 50px;
+    left: calc(50% - 162px);
+}
+
+.hidden {
+    display: none;
 }
 

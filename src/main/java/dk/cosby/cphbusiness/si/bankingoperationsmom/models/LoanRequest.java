@@ -1,4 +1,4 @@
-package dk.cosby.cphbusiness.si.bankingoperationsmom;
+package dk.cosby.cphbusiness.si.bankingoperationsmom.models;
 
 import java.sql.Date;
 
@@ -52,4 +52,5 @@ public class LoanRequest {
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+
 }

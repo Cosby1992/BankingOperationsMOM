@@ -16,14 +16,20 @@
     <div th:class="left-content">
         <h1>Fill out your information</h1>
 
-        <form method="post" th:action="@{/loan/request}" th:object="${loanRequest}">
+        <form id="post-loan-request-form" method="post" th:action="@{/loan/request}" th:object="${loanRequest}">
+            <div th:class="card-text-header" th:classappend="mini">Loan Amount</div>
             <input type="number" step="0.01" th:field="*{loanAmount}" required >
+            <div th:class="card-text-header" th:classappend="mini">Payback Period (month)</div>
             <input type="number" th:field="*{paybackPeriod}" required >
+            <div th:class="card-text-header" th:classappend="mini">Firstname</div>
             <input type="text" th:field="*{firstname}" required >
+            <div th:class="card-text-header" th:classappend="mini">Lastname</div>
             <input type="text" th:field="*{lastname}" required >
+            <div th:class="card-text-header" th:classappend="mini">Date of Birth</div>
             <input type="date" th:field="*{dateOfBirth}" required >
 
             <button type="submit">Submit</button>
+
         </form>
 
     </div>

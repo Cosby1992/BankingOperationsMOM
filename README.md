@@ -25,4 +25,12 @@ it is done, run the CLI command ```npm start```
 
 5. Navigate to localhost:8080 in your browser and apply for a fake loan
 
-6. You'll be presented with a white page after a successful request
+6. You'll be presented with a list of offers that are retrieved from the banks
+
+7. Once you have selected the desirable loan, it will be shown in the __selected__ section
+
+8. Now it is possible to apply for the loan by pressing the button that is presented at the bottom of the page
+
+9. Fill in the information that is required and press __apply__
+
+10. There should now be an option to download the confirmation ```.txt``` file
